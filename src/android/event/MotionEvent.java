@@ -15,4 +15,10 @@ public class MotionEvent {
     public static final int ACTION_HOVER_EXIT = 10;
     public static final int ACTION_BUTTON_PRESS = 11;
     public static final int ACTION_BUTTON_RELEASE = 12;
+
+    private static final String TAG = "MotionEvent";
+
+    public final int getAction() {
+        return ACTION_DOWN;
+    }
 }
