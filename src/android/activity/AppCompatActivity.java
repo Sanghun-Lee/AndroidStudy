@@ -7,4 +7,6 @@ public class AppCompatActivity extends Activity {
     public void setContentView(int layoutResID) {
 
     }
+
+
 }

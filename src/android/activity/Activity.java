@@ -1,9 +1,10 @@
 package android.activity;
 
 import android.context.Context;
+import android.event.KeyEvent;
 import android.event.MotionEvent;
 
-public class Activity extends Context {
+public class Activity extends Context implements Window.Callback, KeyEvent.Callback {
     private static final String TAG = "Activity";
 
     public static final int RESULT_CANCELED = 0;
@@ -46,5 +47,34 @@ public class Activity extends Context {
         }
 
         return onTouchEvent(ev);
+    }
+
+    /**
+     * KeyEvent
+     */
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyMultiple(int keyCode, int count, KeyEvent event) {
+        return false;
     }
 }

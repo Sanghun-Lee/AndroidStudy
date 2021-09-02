@@ -2,9 +2,10 @@ package android.view;
 
 import android.context.Context;
 import android.AttributeSet;
+import android.event.KeyEvent;
 import android.event.MotionEvent;
 
-public class View {
+public class View implements KeyEvent.Callback {
     protected Context mContext;
 
     public View(Context context) {
@@ -39,6 +40,30 @@ public class View {
     }
 
     public boolean onTouchEvent(MotionEvent event) {
+        return false;
+    }
+
+    /**
+     * KeyEvent
+     */
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onKeyMultiple(int keyCode, int count, KeyEvent event) {
         return false;
     }
 
