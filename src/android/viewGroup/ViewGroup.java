@@ -41,11 +41,19 @@ public class ViewGroup extends View {
     }
 
     @Override
-    public Boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
         return super.onTouchEvent(event);
     }
 
-    public Boolean onInterceptTouchEvent(MotionEvent event) {
+
+    /**
+     * onInterceptTouchEvent
+     * 자식뷰의 TouchEvent실행을 막고, ViewGroup의 실행이 필요할 때 (Button위치때문에, 스크롤을 할 수 없을 때)
+     * onInterceptTouchEvent가 true를 리턴하면 더 이상 하위 뷰에서 TouchEvent가 실행되지 않는다.
+     *
+     * onInterceptTouchEvent는 ViewGruop의 dispatchTouchEvent가 실행된 후에 실행된다.
+     */
+    public boolean onInterceptTouchEvent(MotionEvent event) {
         return false;
     }
 

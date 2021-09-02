@@ -38,7 +38,7 @@ public class View {
         return result;
     }
 
-    public Boolean onTouchEvent(MotionEvent event) {
+    public boolean onTouchEvent(MotionEvent event) {
         return false;
     }
 
