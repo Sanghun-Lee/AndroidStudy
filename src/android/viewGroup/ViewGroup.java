@@ -4,8 +4,9 @@ import android.AttributeSet;
 import android.context.Context;
 import android.event.MotionEvent;
 import android.view.View;
+import android.view.ViewParent;
 
-public class ViewGroup extends View {
+public class ViewGroup extends View implements ViewParent {
 
     // constructor
     public ViewGroup(Context context) {
@@ -126,6 +127,32 @@ public class ViewGroup extends View {
             topMargin = top;
             rightMargin = right;
             bottomMargin = bottom;
+        }
+    }
+
+    /**
+     * ViewParent 관련 구현함수
+     */
+    protected static final int FLAG_DISALLOW_INTERCEPT = 0x80000;
+    protected int mGroupFlags;
+
+    // disallowIntercpet가 true이면 부모View는 자식View의 TouchEvent를 Intercept하지 못한다.
+    @Override
+    public void requestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+        if (disallowIntercept == ((mGroupFlags & FLAG_DISALLOW_INTERCEPT) != 0)) {
+            // We're already in this state, assume our ancestors are too
+            return;
+        }
+
+        if (disallowIntercept) {
+            mGroupFlags |= FLAG_DISALLOW_INTERCEPT;
+        } else {
+            mGroupFlags &= ~FLAG_DISALLOW_INTERCEPT;
+        }
+
+        // Pass it up to our parent
+        if (mParent != null) {
+            mParent.requestDisallowInterceptTouchEvent(disallowIntercept);
         }
     }
 }

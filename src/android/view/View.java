@@ -84,4 +84,24 @@ public class View {
 
         getListenerInfo().mOnClickListener = l;
     }
+
+    // ViewParent 관련
+    protected ViewParent mParent;
+
+    void assignParent(ViewParent parent) {
+        if(mParent == null) {
+            mParent = parent;
+        } else if(parent == null) {
+            mParent = null;
+        } else {
+            throw new RuntimeException("view " + this + " being added, but" + " it already has a parent");
+            // throwException
+        }
+    }
+
+    public final ViewParent getParent() {
+        return mParent;
+    }
+
+    public void requestLayout() { }
 }
