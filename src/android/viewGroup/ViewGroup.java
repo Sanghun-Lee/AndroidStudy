@@ -7,6 +7,7 @@ import android.view.View;
 
 public class ViewGroup extends View {
 
+    // constructor
     public ViewGroup(Context context) {
         this(context, null);
     }
@@ -35,7 +36,7 @@ public class ViewGroup extends View {
     }
 
     @Override
-    public Boolean dispatchTouchEvent(MotionEvent event) {
+    public boolean dispatchTouchEvent(MotionEvent event) {
         return super.dispatchTouchEvent(event);
     }
 
@@ -48,6 +49,7 @@ public class ViewGroup extends View {
         return false;
     }
 
+    // ViewGroup에도 LayoutParams 내부 정적 클래스가 존재한다. -> ViewGroup의 width, height정보를 저장
     public static class LayoutParams {
         public static final int MATCH_PARENT = -1;
         public static final int WRAP_CONTENT = -2;
@@ -69,6 +71,7 @@ public class ViewGroup extends View {
         }
     }
 
+    // 위 정적 클래스를 상속받는 MarginLayoutParams가 존재한다. -> 해당 ViewGroup의 margin정보를 저장
     public static class MarginLayoutParams extends ViewGroup.LayoutParams {
         public int leftMargin;
         public int topMargin;

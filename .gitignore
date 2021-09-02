@@ -1,3 +1,5 @@
 .idea
 lib
 Android.iml
+.idea/libraries/KotlinJavaRuntime.xml
+.idea/libraries

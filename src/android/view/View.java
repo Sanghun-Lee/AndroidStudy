@@ -23,11 +23,9 @@ public class View {
         this(context);
     }
 
-    public Boolean dispatchTouchEvent(MotionEvent event) {
-
-
+    public boolean dispatchTouchEvent(MotionEvent event) {
         // onTouchListener가 있으면 TouchListener를 호출하고, 아니면 onTouchEvent를 호출한다.
-        Boolean result = false;
+        boolean result = false;
         ListenerInfo li = mListenerInfo;
         if (li != null && li.mOnTouchListener != null && li.mOnTouchListener.onTouch(this, event)) {
             result = true;
@@ -68,6 +66,7 @@ public class View {
 
     ListenerInfo mListenerInfo;
 
+    // 리스너들을 얻을 수 있는 메소드 정적 클래스
     ListenerInfo getListenerInfo() {
         if (mListenerInfo != null)
             return mListenerInfo;
@@ -81,7 +80,7 @@ public class View {
     }
 
     public void setOnClickListener(OnClickListener l) {
-        // clickaable이 아니면 clickable로 먼저 변경한다.
+        // clickable이 아니면 clickable로 먼저 변경한다.
 
         getListenerInfo().mOnClickListener = l;
     }

@@ -11,6 +11,7 @@ public class FrameLayout extends ViewGroup {
     boolean mMeasureAllChildren = false;
     private int mForegroundPaddingLeft = 0;
 
+    // Layout Constructor
     public FrameLayout(Context context) {
         this(context, null);
     }
@@ -37,6 +38,7 @@ public class FrameLayout extends ViewGroup {
         return mMeasureAllChildren;
     }
 
+    // 각 ViewGroup은 LayoutParams를 가진다.
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static final int UNSPECIFIED_GRAVITY = -1;
         public int gravity = UNSPECIFIED_GRAVITY;
