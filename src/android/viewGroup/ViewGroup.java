@@ -2,6 +2,7 @@ package android.viewGroup;
 
 import android.AttributeSet;
 import android.context.Context;
+import android.event.MotionEvent;
 import android.view.View;
 
 public class ViewGroup extends View {
@@ -31,6 +32,20 @@ public class ViewGroup extends View {
 
     private void initFromAttributes(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
 
+    }
+
+    @Override
+    public Boolean dispatchTouchEvent(MotionEvent event) {
+        return super.dispatchTouchEvent(event);
+    }
+
+    @Override
+    public Boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+    }
+
+    public Boolean onInterceptTouchEvent(MotionEvent event) {
+        return false;
     }
 
     public static class LayoutParams {
